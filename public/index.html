@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поиск видео</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Поиск видео</h1>
+    <div class="controls">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Введите запрос..."  maxlength="200">
+        <button id="searchButton">Поиск</button>
+      </div>
+      <div class="settings">
+        <label class="language-switch">
+          <!--<input type="checkbox" id="languageSwitch">-->
+          <span class="slider round"></span>
+          <span class="labels" data-on="ENG" data-off="РУС"></span>
+        </label>
+        <button id="randomBtn" class="random-btn">Главная</button>
+      </div>
+    </div>
+    
+    <div id="categoriesContainer" class="categories-container"></div>
+    
+    <div id="loader" class="loader" style="display: none;"></div>
+    
+    <div id="resultsContainer"></div>
+    
+    <button id="loadMoreBtn" class="load-more" style="display: none;">
+      Загрузить еще
+    </button>
+  </div>
+  
+  <!-- Модальное окно для просмотра видео -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
