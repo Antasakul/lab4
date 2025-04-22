@@ -287,7 +287,7 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.9);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .modal-content {
@@ -308,11 +308,15 @@ h1 {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 }
 
 .close:hover {
   color: #333;
+}
+/* Запрещаем прокрутку страницы при открытом модальном окне */
+body.modal-open {
+  overflow: hidden;
 }
 
 .modal-video-container {
@@ -389,10 +393,10 @@ h1 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
-}
+}/*
 #loadMoreBtn {
   display: none !important;
-}
+}*/
 .random-btn:hover {
   background-color: #606060
 }
@@ -546,10 +550,17 @@ h1 {
   color: white;
   border-color: #ff0000;
 }
-
+.page-numbers {
+  display: flex;
+  gap: 5px;
+}
 .pages {
   display: flex;
   gap: 5px;
+}
+.pages span {
+  padding: 8px 12px;
+  display: inline-block;
 }
 /* Гарантированные стили для аватарок */
 .channel-avatar-small img,
@@ -600,4 +611,80 @@ img[onerror] {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Добавьте в ваш style.css */
+
+/* Стиль для модального окна */
+#videoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+  position: relative;
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Стиль для аватарок каналов */
+.channel-avatar-small img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Стиль для длительности видео */
+.video-duration {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff0000; /* Красный цвет как у YouTube */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  display: none; /* Сначала скрыта */
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #cc0000; /* Темнее при наведении */
+  transform: scale(1.1);
 }
